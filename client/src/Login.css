@@ -1,0 +1,121 @@
+/* Global styling */
+
+.full {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+  
+  .login-container {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Left section styling */
+  .login-left {
+    padding: 40px;
+    color: #333333;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .company-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .company-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    margin-bottom: 28px;
+  }
+  
+  .login-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #34495e;
+    margin: 20px 0;
+  }
+  
+  .input-group2 {
+    width: 90%;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .input-group2 label {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #666666;
+  }
+  
+  .input-group2 input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333333;
+    font-size: 16px;
+  }
+  
+  .input-group2 input::placeholder {
+    color: #999999;
+  }
+  
+  .login-button1 {
+    width: 90%;
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #333333; /* Black theme */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #1a1a1a; /* Darker black on hover */
+  }
+  
+  .signup-message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #7f8c8d;
+    text-align: center;
+  }
+  
+  .signup-link {
+    color: #333333; /* Black theme for links */
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Right section styling */
+  .login-right img {
+    width: 400px;
+    height:510px;
+    background-size: cover;
+  }
+  
