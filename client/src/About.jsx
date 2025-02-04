@@ -27,7 +27,7 @@ function AboutAndFeedback() {
       return;
     }
 
-    const response = await fetch('https://bookrecc.vercel.app/send-feedback', {
+    const response = await fetch('https://bookrecc.vercel.app/api/send-feedback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -59,7 +59,7 @@ const UserData = mongoose.model('UserData', userDataSchema, 'userdata');
 const Rating = mongoose.model('Rating', ratingSchema, 'ratings');
 
 // Routes
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
     const { username, email, password } = req.body;
     try {
         const existingUser = await User.findOne({ username });
@@ -81,7 +81,7 @@ app.post('/register', async (req, res) => {
     }
 });
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
     const { name, password } = req.body;
     try {
         const user = await User.findOne({ username: name });
@@ -101,7 +101,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Add "Add to Read" route
-app.post('/addToRead', async (req, res) => {
+app.post('/api/addToRead', async (req, res) => {
     const { username, ISBN, title, author, yearOfPublication, publisher } = req.body;
     try {
         if (!username || !title) {
@@ -125,7 +125,7 @@ app.post('/addToRead', async (req, res) => {
 });
 
 // Add "Rate Book" route
-app.post('/rateBook', async (req, res) => {
+app.post('/api/rateBook', async (req, res) => {
     const { username, ISBN, title, rating } = req.body;
     try {
         const newRating = new Rating({ username, ISBN, title, rating });
@@ -145,7 +145,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-app.post('/send-feedback', (req, res) => {
+app.post('/api/send-feedback', (req, res) => {
     const { name, email, message } = req.body;
     const mailOptions = {
         from: email,
@@ -163,7 +163,7 @@ app.post('/send-feedback', (req, res) => {
     });
 });
 
-app.get('/userdata/:username', async (req, res) => {
+app.get('/api/userdata/:username', async (req, res) => {
     const { username } = req.params;
     try {
         const userData = await UserData.find({ username });
@@ -259,7 +259,7 @@ async function generateRecommendations(username) {
 }
 
 // API endpoint for recommendations
-app.get('/recommendations/:username', async (req, res) => {
+app.get('/api/recommendations/:username', async (req, res) => {
     try {
         const username = req.params.username;
         const recommendations = await generateRecommendations(username);

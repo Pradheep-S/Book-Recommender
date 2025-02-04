@@ -14,7 +14,7 @@ function Yourlist() {
         const fetchData = async () => {
             try {
                 // Fetch user's book list
-                const response = await fetch(`https://bookrecc.vercel.app/userdata/${username}`);
+                const response = await fetch(`https://bookrecc.vercel.app/api/userdata/${username}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch user data");
                 }
@@ -49,7 +49,7 @@ function Yourlist() {
                 setBooks(booksWithDetails);
 
                 // Fetch recommendations from the backend
-                const recommendationResponse = await fetch(`https://bookrecc.vercel.app/recommendations/${username}`);
+                const recommendationResponse = await fetch(`https://bookrecc.vercel.app/api/recommendations/${username}`);
                 if (!recommendationResponse.ok) {
                     throw new Error("Failed to fetch recommendations");
                 }

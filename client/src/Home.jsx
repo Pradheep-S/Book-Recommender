@@ -58,7 +58,7 @@ const handleAddToRead = async (book) => {
     };
 
     console.log("Book Data:", bookData);
-    const response = await axios.post("https://bookrecc.vercel.app/addToRead", bookData);
+    const response = await axios.post("https://bookrecc.vercel.app/api/addToRead", bookData);
     console.log(response.data);
 
     // Update the state to indicate the book was added
@@ -80,7 +80,7 @@ const handleAddToRead = async (book) => {
     }
 
     try {
-      const response = await axios.post("https://bookrecc.vercel.app/rateBook", {
+      const response = await axios.post("https://bookrecc.vercel.app/api/rateBook", {
         username,
         ISBN: book.volumeInfo.industryIdentifiers?.[0]?.identifier || "N/A",
         title: book.volumeInfo.title,
