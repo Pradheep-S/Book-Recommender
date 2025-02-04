@@ -49,7 +49,7 @@ function Signup() {
             if (response.data.error) {
                 setErrorMessage(response.data.error);
             } else {
-                navigate('/login');
+                navigate('/');
             }
         } catch (error) {
             setErrorMessage('Registration failed. Please try again.');
@@ -84,7 +84,7 @@ function Signup() {
                         <span id="signupError" className="error-message">{errorMessage}</span>
                         <div className="signup-message">
                             Already have an account?
-                            <Link to="/login" className="signup-link"> Log In</Link>
+                            <Link to="/" className="signup-link"> Log In</Link>
                         </div>
                     </div>
                     <div className="login-right1">

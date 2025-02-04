@@ -20,7 +20,7 @@ function Navbar() {
     // Handle logout
     const handleLogout = () => {
         localStorage.removeItem('username');
-        navigate('/login');
+        navigate('/');
     };
 
     // Close dropdown if clicked outside
