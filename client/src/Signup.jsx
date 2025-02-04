@@ -41,7 +41,7 @@ function Signup() {
             return;
         }
         try {
-            const response = await axios.post('https://bookrecc.vercel.app/api/register', {
+            const response = await axios.post('https://bookrecc-api.vercel.app/api/register', {
                 username: name,
                 email: email,
                 password: pw

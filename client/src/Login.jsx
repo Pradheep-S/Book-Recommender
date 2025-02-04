@@ -13,7 +13,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://bookrecc.vercel.app/api/login', {
+        axios.post('https://bookrecc-api.vercel.app/api/login', {
             name: name,
             password: pw
         })
