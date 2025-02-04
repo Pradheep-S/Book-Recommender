@@ -9,7 +9,14 @@ const PORT = process.env.PORT || 5000;
 const axios = require('axios');
 
 // Middleware
-app.use(cors());
+// Enable CORS for your frontend
+app.use(cors({
+    origin: "https://bookrecc.vercel.app",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+}));
+app.use(express.json());
+
 app.use(bodyParser.json());
 
 // MongoDB connection
