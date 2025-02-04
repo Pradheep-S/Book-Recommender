@@ -41,7 +41,7 @@ function Signup() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:5000/register', {
+            const response = await axios.post('https://bookrecc.vercel.app/register', {
                 username: name,
                 email: email,
                 password: pw
