@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use(bodyParser.json());
-
+const API_URL = "https://bookrecc-api.vercel.app/api";
 // MongoDB connection
 mongoose.connect('mongodb+srv://pradheep:12345@data.qgucs.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected...'))
@@ -84,7 +84,7 @@ const UserData = mongoose.model('UserData', userDataSchema, 'userdata');
 const Rating = mongoose.model('Rating', ratingSchema, 'ratings');
 
 // Routes
-app.post('/api/register', async (req, res) => {
+app.post('${API_URL}/register', async (req, res) => {
     const { username, email, password } = req.body;
     try {
         const existingUser = await User.findOne({ username });
@@ -106,7 +106,8 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-app.post('/api/login', async (req, res) => {
+app.post('${API_URL}/login', async (req, res) => {
+    res.json({ message: "Login successful" });
     const { name, password } = req.body;
     try {
         const user = await User.findOne({ username: name });
@@ -126,7 +127,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 // Add "Add to Read" route
-app.post('/api/addToRead', async (req, res) => {
+app.post('${API_URL}/addToRead', async (req, res) => {
     const { username, ISBN, title, author, yearOfPublication, publisher } = req.body;
     try {
         if (!username || !title) {
@@ -150,7 +151,7 @@ app.post('/api/addToRead', async (req, res) => {
 });
 
 // Add "Rate Book" route
-app.post('/api/rateBook', async (req, res) => {
+app.post('${API_URL}/rateBook', async (req, res) => {
     const { username, ISBN, title, rating } = req.body;
     try {
         const newRating = new Rating({ username, ISBN, title, rating });
@@ -170,7 +171,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-app.post('/api/send-feedback', (req, res) => {
+app.post('${API_URL}/send-feedback', (req, res) => {
     const { name, email, message } = req.body;
     const mailOptions = {
         from: email,
@@ -188,7 +189,7 @@ app.post('/api/send-feedback', (req, res) => {
     });
 });
 
-app.get('/api/userdata/:username', async (req, res) => {
+app.get('${API_URL}/userdata/:username', async (req, res) => {
     const { username } = req.params;
     try {
         const userData = await UserData.find({ username });
@@ -284,7 +285,7 @@ async function generateRecommendations(username) {
 }
 
 // API endpoint for recommendations
-app.get('/api/recommendations/:username', async (req, res) => {
+app.get('${API_URL}/recommendations/:username', async (req, res) => {
     try {
         const username = req.params.username;
         const recommendations = await generateRecommendations(username);
