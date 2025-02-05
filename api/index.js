@@ -37,6 +37,11 @@ mongoose.connect('mongodb+srv://pradheep:12345@data.qgucs.mongodb.net/', { useNe
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.error('MongoDB connection error:', err));
 
+// API Route Test
+app.get("/", (req, res) => {
+    res.send("Backend is working!");
+});
+
 // Schemas and Models
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
