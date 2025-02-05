@@ -12,7 +12,7 @@ const axios = require('axios');
 // Enable CORS for your frontend
 app.use(cors({
     origin: "https://bookrecc.vercel.app",
-    methods: "GET,POST,PUT,DELETE",
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
     credentials: true
 }));
 // Middleware to handle preflight requests (optional but useful)
